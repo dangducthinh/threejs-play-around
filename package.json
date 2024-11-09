@@ -1,0 +1,14 @@
+{
+  "name": "threejs",
+  "version": "1.0.0",
+  "description": "Threejs play around",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Tim",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.170.0"
+  }
+}
