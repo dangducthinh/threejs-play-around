@@ -9,18 +9,30 @@ function initCube() {
     document.body.appendChild(renderer.domElement);
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new THREE.Mesh(geometry, material);
+
+    // Create an array of materials, one for each face
+    const materials = [
+        new THREE.MeshBasicMaterial({ color: 0xff0000 }), // Red
+        new THREE.MeshBasicMaterial({ color: 0x00ff00 }), // Green
+        new THREE.MeshBasicMaterial({ color: 0x0000ff }), // Blue
+        new THREE.MeshBasicMaterial({ color: 0xffff00 }), // Yellow
+        new THREE.MeshBasicMaterial({ color: 0xff00ff }), // Magenta
+        new THREE.MeshBasicMaterial({ color: 0x00ffff })  // Cyan
+    ];
+
+    // Create a mesh with the geometry and the array of materials
+    const cube = new THREE.Mesh(geometry, materials);
     scene.add(cube);
 
     camera.position.z = 4;
 
     const animate = () => {
-        cube.rotation.x += 0.01;
+        cube.rotation.x -= 0.01;
         cube.rotation.y += 0.01;
         renderer.render(scene, camera);
     }
     renderer.setAnimationLoop(animate);
+
 }
 
 export default initCube;
